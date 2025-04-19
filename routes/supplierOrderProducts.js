@@ -6,7 +6,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 router.get('/', authenticateToken, async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.supplier_order_products');
+    const result = await pool.query('SELECT * FROM samaansync.supplier_order_products');
     res.json(result.rows);
   } catch (err) {
     console.error('Error fetching supplier orders:', err.stack);
@@ -23,7 +23,7 @@ router.get('/view', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      'SELECT * FROM bazaardb.supplier_order_products WHERE order_id = $1',
+      'SELECT * FROM samaansync.supplier_order_products WHERE order_id = $1',
       [order_id]
     );
 
@@ -49,7 +49,7 @@ try {
     await pool.query('BEGIN');
 
     await pool.query(
-      `INSERT INTO bazaardb.supplier_order_products 
+      `INSERT INTO samaansync.supplier_order_products 
         (supplier_id, store_id, product_id, quantity, price)
        VALUES ($1, $2, $3, $4, $5)`,
       [supplier_id, store_id, product_id, quantity, price]
@@ -79,7 +79,7 @@ router.post('/update', authenticateToken, async (req, res) => {
     await client.query('BEGIN');
 
     const updateResult = await client.query(
-      `UPDATE bazaardb.supplier_order_products
+      `UPDATE samaansync.supplier_order_products
        SET supplier_id = $1, product_id = $2, store_id = $3, quantity = $4, price = $5
        WHERE order_id = $6 RETURNING *`,
       [supplier_id, product_id, store_id, quantity, price, order_id]

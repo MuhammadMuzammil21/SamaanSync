@@ -6,7 +6,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 
 router.get('/', authenticateToken, async (req, res) => {
-  const result = await pool.query('SELECT * FROM bazaardb.product_transactions');
+  const result = await pool.query('SELECT * FROM samaansync.product_transactions');
   res.json(result.rows);
 });
 
@@ -18,7 +18,7 @@ router.get('/transaction', authenticateToken, async (req, res) => {
   }
 
   const result = await pool.query(
-    'SELECT * FROM bazaardb.product_transactions WHERE transaction_id = $1',
+    'SELECT * FROM samaansync.product_transactions WHERE transaction_id = $1',
     [transaction_id]
   );
 
@@ -37,7 +37,7 @@ router.get('/by-date', authenticateToken, async (req, res) => {
   }
 
   const result = await pool.query(
-    'SELECT * FROM bazaardb.product_transactions WHERE DATE(timestamp) = $1',
+    'SELECT * FROM samaansync.product_transactions WHERE DATE(timestamp) = $1',
     [date]
   );
 
@@ -51,7 +51,7 @@ router.get('/transaction-summary', authenticateToken, async (req, res) => {
         COUNT(*) FILTER (WHERE movement_type = 'stock_in') AS stock_in_count,
         COUNT(*) FILTER (WHERE movement_type = 'sell') AS sell_count,
         COUNT(*) FILTER (WHERE movement_type = 'remove') AS remove_count
-      FROM bazaardb.product_transactions;
+      FROM samaansync.product_transactions;
     `);
 
     res.status(200).json(result.rows);
@@ -98,7 +98,7 @@ router.post('/', authenticateToken, async (req, res) => {
 
       case 'remove': {
         const { rows } = await pool.query(
-          `SELECT current_quantity FROM bazaardb.inventory
+          `SELECT current_quantity FROM samaansync.inventory
            WHERE store_id = $1 AND product_id = $2 FOR UPDATE`,
           [store_id, product_id]
         );

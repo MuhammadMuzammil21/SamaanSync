@@ -5,7 +5,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 router.get('/', authenticateToken, async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.products');
+    const result = await pool.query('SELECT * FROM samaansync.products');
     res.json(result.rows);
   } catch (err) {
     console.error('Error fetching products:', err.stack);
@@ -22,7 +22,7 @@ router.get('/item', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      'SELECT * FROM bazaardb.products WHERE product_id = $1',
+      'SELECT * FROM samaansync.products WHERE product_id = $1',
       [product_id]
     );
 
@@ -50,7 +50,7 @@ router.post('/', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `INSERT INTO bazaardb.products (product_id, name, category_id, is_active)
+      `INSERT INTO samaansync.products (product_id, name, category_id, is_active)
        VALUES ($1, $2, $3, $4) RETURNING *`,
       [product_id, name, category_id, is_active]
     );
@@ -85,7 +85,7 @@ router.post('/update', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `UPDATE bazaardb.products 
+      `UPDATE samaansync.products 
        SET name = $1, category_id = $2, is_active = $3, updated_at = CURRENT_TIMESTAMP
        WHERE product_id = $4 RETURNING *`,
       [name, category_id, is_active || 'Y', product_id]

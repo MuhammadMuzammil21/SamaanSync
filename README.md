@@ -1,4 +1,4 @@
-# 💼 Bazaar Engineering
+# 💼 SamaanSync Engineering
 
 A Node.js backend project to manage products, stores, suppliers, and related inventory systems. It features modular route handling, secure authentication, inventory tracking, and more.
 
@@ -7,7 +7,7 @@ A Node.js backend project to manage products, stores, suppliers, and related inv
 ## 📁 Project Structure
 
 ```
-Bazaar/
+SamaanSync/
 ├── helpers/                  # Utility helpers
 ├── middleware/              # Custom middleware (e.g., auth)
 ├── node_modules/            # Project dependencies
@@ -15,8 +15,8 @@ Bazaar/
 ├── routes/                  # API route handlers
 ├── utils/                   # Utility functions
 ├── .env                     # Environment variables
-├── Bazaar.dll               # DLL for database schema
-├── BazaarDB.sql             # SQL script to initialize DB
+├── SamaanSync.dll               # DLL for database schema
+├── SamaanSyncDB.sql             # SQL script to initialize DB
 ├── db.js                    # Database connection logic
 ├── package.json             # Project metadata and scripts
 ├── package-lock.json        # Dependency lock file
@@ -80,8 +80,8 @@ Bazaar/
 
 ## 📓 Database
 
-- Use `BazaarDB.sql` to initialize your local database.
-- `Bazaar.dll` might contain schema or additional database config logic.
+- Use `SamaanSyncDB.sql` to initialize your local database.
+- `SamaanSync.dll` might contain schema or additional database config logic.
 
 ---
 
@@ -97,9 +97,3 @@ Bazaar/
 - `express-rate-limit` - Rate limiter middleware  
 - `body-parser` - Parsing middleware  
 - `basic-auth` - Basic HTTP auth  
-
----
-
-## 📄 License
-
-This project is licensed under the **ISC License**.

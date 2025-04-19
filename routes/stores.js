@@ -5,7 +5,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 router.get('/', authenticateToken, async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.stores');
+    const result = await pool.query('SELECT * FROM samaansync.stores');
     res.json(result.rows);
   } catch (err) {
     console.error('Error fetching stores:', err.stack);
@@ -21,7 +21,7 @@ router.get('/store', authenticateToken, async (req, res) => {
   }
 
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.stores WHERE store_id = $1', [store_id]);
+    const result = await pool.query('SELECT * FROM samaansync.stores WHERE store_id = $1', [store_id]);
 
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Store not found' });
@@ -47,7 +47,7 @@ router.post('/', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      'INSERT INTO bazaardb.stores (store_id, name, is_active) VALUES ($1, $2, $3) RETURNING *',
+      'INSERT INTO samaansync.stores (store_id, name, is_active) VALUES ($1, $2, $3) RETURNING *',
       [store_id, name, is_active || 'Y']
     );
     res.status(201).json(result.rows[0]);
@@ -79,7 +79,7 @@ router.post('/update', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `UPDATE bazaardb.stores
+      `UPDATE samaansync.stores
        SET name = $1, is_active = $2
        WHERE store_id = $3 RETURNING *`,
       [name, is_active || 'Y', store_id]

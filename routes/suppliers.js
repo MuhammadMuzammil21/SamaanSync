@@ -5,7 +5,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 router.get('/', authenticateToken, async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.suppliers');
+    const result = await pool.query('SELECT * FROM samaansync.suppliers');
     res.json(result.rows);
   } catch (err) {
     console.error('Error fetching suppliers:', err.stack);
@@ -22,7 +22,7 @@ router.get('/view', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      'SELECT * FROM bazaardb.suppliers WHERE supplier_id = $1',
+      'SELECT * FROM samaansync.suppliers WHERE supplier_id = $1',
       [supplier_id]
     );
 
@@ -50,7 +50,7 @@ router.post('/', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `INSERT INTO bazaardb.suppliers (supplier_id, name, contact_info, is_active)
+      `INSERT INTO samaansync.suppliers (supplier_id, name, contact_info, is_active)
        VALUES ($1, $2, $3, $4) RETURNING *`,
       [supplier_id, name, contact_info || null, is_active]
     );
@@ -81,7 +81,7 @@ router.post('/update', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `UPDATE bazaardb.suppliers
+      `UPDATE samaansync.suppliers
        SET name = $1, contact_info = $2, is_active = $3
        WHERE supplier_id = $4 RETURNING *`,
       [name, contact_info || null, is_active || 'Y', supplier_id]

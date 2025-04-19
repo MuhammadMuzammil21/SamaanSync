@@ -5,7 +5,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 router.get('/', authenticateToken, async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.product_categories');
+    const result = await pool.query('SELECT * FROM samaansync.product_categories');
     res.json(result.rows);
   } catch (err) {
     console.error('Error fetching categories:', err.stack);
@@ -22,7 +22,7 @@ router.get('/item', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      'SELECT * FROM bazaardb.product_categories WHERE category_id = $1',
+      'SELECT * FROM samaansync.product_categories WHERE category_id = $1',
       [category_id]
     );
 
@@ -50,7 +50,7 @@ router.post('/', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `INSERT INTO bazaardb.product_categories (category_id, name, is_active)
+      `INSERT INTO samaansync.product_categories (category_id, name, is_active)
        VALUES ($1, $2, $3) RETURNING *`,
       [category_id, name, is_active]
     );
@@ -85,7 +85,7 @@ router.post('/update', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `UPDATE bazaardb.product_categories
+      `UPDATE samaansync.product_categories
        SET name = $1, is_active = $2 WHERE category_id = $3 RETURNING *`,
       [name, is_active || 'Y', category_id]
     );

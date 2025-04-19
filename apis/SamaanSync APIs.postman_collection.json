@@ -1,0 +1,1400 @@
+{
+	"info": {
+		"_postman_id": "a08df45a-7111-4c65-a2cb-d7163f2cf19a",
+		"name": "SamaanSync APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43768879",
+		"_collection_link": "https://muzammil-3996953.postman.co/workspace/Muzammil's-Workspace~7bdc6af2-b05e-4647-89df-4d7b53ea809b/collection/43768879-a08df45a-7111-4c65-a2cb-d7163f2cf19a?action=share&source=collection_link&creator=43768879"
+	},
+	"item": [
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Get All inventory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/inventory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Inventory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "store_id",
+								"value": "S001",
+								"type": "text"
+							},
+							{
+								"key": "inventory_id",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/inventory/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"inventory",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Store Inventory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "store_id",
+								"value": "S001",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/inventory/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"inventory",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Inventory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"store_id\": \"S001\",\r\n  \"product_id\": \"P002\",\r\n  \"current_quantity\": 100\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/inventory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Specific Inventory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "inventory_id",
+								"value": "4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"current_quantity\": 40\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/inventory/update?inventory_id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"inventory",
+								"update"
+							],
+							"query": [
+								{
+									"key": "inventory_id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pricing",
+			"item": [
+				{
+					"name": "Get All Pricing",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/pricing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"pricing"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific pricing",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "store_id",
+								"value": "S003",
+								"type": "text"
+							},
+							{
+								"key": "product_id",
+								"value": "P004",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/pricing/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"pricing",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Pricing",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"store_id\" : \"S001\",\r\n    \"product_id\" : \"P002\",\r\n    \"price\" : \"3.29\",\r\n    \"updated_by\" : \"admin\",\r\n    \"is_active\" : \"N\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/pricing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"pricing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specific Pricing",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "store_id",
+								"value": "S001",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "product_id",
+								"value": "P002",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\" : 5.00,\r\n    \"updated_by\" : \"manager1\",\r\n    \"is_active\" : \"Y\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/pricing/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"pricing",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "product_id",
+								"value": "P005",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/products/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\": \"P006\",\r\n    \"name\": \"Detergent\",\r\n    \"category_id\": \"C006\",\r\n    \"is_active\": \"Y\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specific Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "product_id",
+								"value": "P006",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Detergent\",\r\n    \"category_id\": \"C006\",\r\n    \"is_active\": \"N\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/products/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Categories",
+			"item": [
+				{
+					"name": "Get all Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/productCategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productCategories"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "category_id",
+								"value": "C003",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/productCategories/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productCategories",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Product Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_id\": \"C006\",\r\n    \"name\": \"Household Items\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/productCategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specific Product Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "category_id",
+								"value": "C006",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Household Items\",\r\n    \"is_active\": \"N\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/productCategories/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productCategories",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Transactions",
+			"item": [
+				{
+					"name": "Get all Transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/productTransactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productTransactions"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "transaction_id",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/productTransactions/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productTransactions",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction by Date",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "date",
+								"value": "2025-04-06 18:16:25.346335",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/productTransactions/by-date",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productTransactions",
+								"by-date"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction Summary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/productTransactions/transaction-summary",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productTransactions",
+								"transaction-summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Product Transactions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"store_id\": \"S001\",\r\n        \"product_id\": \"P002\",\r\n        \"quantity\": 100,\r\n        \"movement_type\": \"remove\",\r\n        \"updated_by\": \"admin\",\r\n        \"supplier_id\": \"SUP003\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/productTransactions/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"productTransactions",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stores",
+			"item": [
+				{
+					"name": "Get all Stores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific stores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "store_id",
+								"value": "S003",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/stores/store",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"stores",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"store_id\" : \"S006\",\r\n    \"name\" : \"Daraz\",\r\n    \"is_active\" : \"N\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specific Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "store_id",
+								"value": "S006",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Daraz\",\r\n    \"is_active\" : \"Y\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/stores/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"stores",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store Products",
+			"item": [
+				{
+					"name": "Get all store Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/storeProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"storeProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Store Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "store_id",
+								"value": "S001",
+								"type": "text"
+							},
+							{
+								"key": "product_id",
+								"value": "P002",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/storeProducts/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"storeProducts",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Store Products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"store_id\" : \"S005\",\r\n    \"product_id\" : \"P006\",\r\n    \"min_quantity\" : \"30\",\r\n    \"max_quantity\" : \"100\",\r\n    \"is_active\" : \"Y\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/storeProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"storeProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Store Products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "store_id",
+								"value": "S001",
+								"type": "text"
+							},
+							{
+								"key": "product_id",
+								"value": "P001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"min_quantity\" : \"30\",\r\n    \"max_quantity\" : \"100\",\r\n    \"is_active\" : \"N\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/storeProducts/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"storeProducts",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supplier",
+			"item": [
+				{
+					"name": "Get all Suppliers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/suppliers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Supplier",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "supplier_id",
+								"value": "SUP005",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/suppliers/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"suppliers",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Supplier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"supplier_id\" : \"SUP006\",\r\n    \"name\" : \"NewFarms\",\r\n    \"contact_info\": \"hello@newfarms.com, +123406789\",\r\n    \"is_active\": \"Y\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/suppliers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specific Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "supplier_id",
+								"value": "SUP006",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"NewFarms LTD\",\r\n    \"contact_info\": \"hello@newfarms.com, +123406789\",\r\n    \"is_active\": \"N\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/suppliers/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"suppliers",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supplier Order Products",
+			"item": [
+				{
+					"name": "Get all Supplier Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/supplierOrderProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"supplierOrderProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Supplier Order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "order_id",
+								"value": "5",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/supplierOrderProducts/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"supplierOrderProducts",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Supplier Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"supplier_id\": \"SUP005\",\r\n        \"store_id\": \"S001\",\r\n        \"product_id\": \"P001\",\r\n        \"quantity\": \"15\",\r\n        \"price\": \"2.00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/supplierOrderProducts/supplier-orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"supplierOrderProducts",
+								"supplier-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Supplier Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ0NjUyMDQzLCJleHAiOjE3NDQ2NTU2NDN9.KwFVkIs5Pq0_7tMlXIgMJ4cyfKpRu5SVfuH4KU6zNZQ",
+								"type": "text"
+							},
+							{
+								"key": "order_id",
+								"value": "13",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"supplier_id\": \"SUP005\",\r\n        \"store_id\": \"S001\",\r\n        \"product_id\": \"P001\",\r\n        \"quantity\": \"10\",\r\n        \"price\": \"2.00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/supplierOrderProducts/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"supplierOrderProducts",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Auth Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

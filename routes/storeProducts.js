@@ -5,7 +5,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 router.get('/', authenticateToken, async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.store_products');
+    const result = await pool.query('SELECT * FROM samaansync.store_products');
     res.json(result.rows);
   } catch (err) {
     console.error('Error fetching store_products:', err.stack);
@@ -23,7 +23,7 @@ router.get('/product', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      'SELECT * FROM bazaardb.store_products WHERE store_id = $1 AND product_id = $2',
+      'SELECT * FROM samaansync.store_products WHERE store_id = $1 AND product_id = $2',
       [store_id, product_id]
     );
 
@@ -47,7 +47,7 @@ router.post('/', authenticateToken, async (req, res) => {
 
   try {
     const existing = await pool.query(
-      `SELECT * FROM bazaardb.store_products WHERE store_id = $1 AND product_id = $2`,
+      `SELECT * FROM samaansync.store_products WHERE store_id = $1 AND product_id = $2`,
       [store_id, product_id]
     );
 
@@ -56,7 +56,7 @@ router.post('/', authenticateToken, async (req, res) => {
     }
 
     const result = await pool.query(
-      `INSERT INTO bazaardb.store_products (store_id, product_id, min_quantity, max_quantity, is_active)
+      `INSERT INTO samaansync.store_products (store_id, product_id, min_quantity, max_quantity, is_active)
        VALUES ($1, $2, $3, $4, $5) RETURNING *`,
       [store_id, product_id, min_quantity, max_quantity, is_active]
     );
@@ -84,7 +84,7 @@ router.post('/update', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `UPDATE bazaardb.store_products
+      `UPDATE samaansync.store_products
        SET min_quantity = $1, max_quantity = $2, is_active = $3, updated_at = CURRENT_TIMESTAMP
        WHERE store_id = $4 AND product_id = $5 RETURNING *`,
       [min_quantity, max_quantity, is_active, store_id, product_id]

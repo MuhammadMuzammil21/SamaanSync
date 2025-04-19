@@ -5,7 +5,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 router.get('/', authenticateToken,async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.inventory');
+    const result = await pool.query('SELECT * FROM samaansync.inventory');
     res.json(result.rows);
   } catch (err) {
     console.error('Error fetching inventory', err);
@@ -21,7 +21,7 @@ router.get('/item', authenticateToken, async (req, res) => {
   }
 
   try {
-    const result = await pool.query('SELECT * FROM bazaardb.inventory WHERE inventory_id = $1 AND store_id = $2', [inventory_id, store_id]);
+    const result = await pool.query('SELECT * FROM samaansync.inventory WHERE inventory_id = $1 AND store_id = $2', [inventory_id, store_id]);
     if (result.rowCount === 0) return res.status(404).json({ message: 'Record not found' });
     res.json(result.rows[0]);
   } catch (err) {
@@ -36,7 +36,7 @@ router.get("/status", authenticateToken, async (req, res) => {
     return res.status(400).json({ message: 'Store ID is required in the header' });
   }
    try {
-    const result = await pool.query('SELECT * FROM bazaardb.inventory WHERE store_id = $1', [store_id]);
+    const result = await pool.query('SELECT * FROM samaansync.inventory WHERE store_id = $1', [store_id]);
     if (result.rowCount === 0) return res.status(404).json({ message: 'Record not found' });
     res.json(result.rows[0]);
   } catch (err) {
@@ -50,7 +50,7 @@ router.post('/', authenticateToken, async (req, res) => {
   const { store_id, product_id, current_quantity } = req.body;
   try {
     const existingRecord = await pool.query(
-      `SELECT * FROM bazaardb.inventory WHERE store_id = $1 AND product_id = $2`,
+      `SELECT * FROM samaansync.inventory WHERE store_id = $1 AND product_id = $2`,
       [store_id, product_id]
     );
 
@@ -60,7 +60,7 @@ router.post('/', authenticateToken, async (req, res) => {
       });
     } else {
       const result = await pool.query(
-        `INSERT INTO bazaardb.inventory (store_id, product_id, current_quantity, last_updated)
+        `INSERT INTO samaansync.inventory (store_id, product_id, current_quantity, last_updated)
          VALUES ($1, $2, $3, NOW())`,
         [store_id, product_id, current_quantity]
       );
@@ -84,7 +84,7 @@ router.post('/update', authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `UPDATE bazaardb.inventory SET current_quantity = $1, last_updated = CURRENT_TIMESTAMP
+      `UPDATE samaansync.inventory SET current_quantity = $1, last_updated = CURRENT_TIMESTAMP
        WHERE inventory_id = $2 RETURNING *`,
       [current_quantity, inventory_id]
     );
