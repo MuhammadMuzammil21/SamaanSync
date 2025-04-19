@@ -8,10 +8,10 @@ A Node.js backend project to manage products, stores, suppliers, and related inv
 
 ```
 SamaanSync/
+├── apis/                    # Postman APIs collection
 ├── helpers/                 # Utility helpers
 ├── middleware/              # Custom middleware (e.g., auth)
 ├── node_modules/            # Project dependencies
-├── POSTMAN Collection/      # Postman API collection
 ├── routes/                  # API route handlers
 ├── utils/                   # Utility functions
 ├── .env                     # Environment variables
